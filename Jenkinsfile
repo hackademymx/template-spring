@@ -4,6 +4,10 @@ pipeline {
     maven 'mavenTool'
   }
   
+  environment {
+    PROJECT_ROOT = "skel_microservice"
+  }
+  
   stages {
     stage('build') {
       steps {
