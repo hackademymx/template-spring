@@ -17,6 +17,8 @@
 	<properties>
 		<java.version>1.17</java.version>
 		<springdoc.version>1.5.10</springdoc.version>
+		<maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.source>17</maven.compiler.source>
 	</properties>
 
 	<dependencies>
@@ -166,6 +168,11 @@
 					<outputFileName>openapi.json</outputFileName>
 					<outputDir>${project.build.directory}</outputDir>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.4</version>
 			</plugin>
 		</plugins>
 	</build>
