@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sleep 1
+        sh "mvn -f ${PROJECT_ROOT} clean install"
       }
     }
 
