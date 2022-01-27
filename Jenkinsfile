@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'maven:3.8.1-adoptopenjdk-11'
-            args '-v /root/jenkins_home/.m2:/var/jenkins_home/.m2'
+            args '-v /jenkins/.m2:/jenkins/.m2'
         }
     }
     stages {
