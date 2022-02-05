@@ -15,7 +15,7 @@
 	<description>Skeleton for create a microservice with spring boot and spring data</description>
 
 	<properties>
-		<java.version>1.11</java.version>
+		<java.version>11</java.version>
 		<springdoc.version>1.5.10</springdoc.version>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
