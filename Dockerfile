@@ -1,11 +1,16 @@
-FROM openjdk:17-jdk-alpine
+FROM openjdk:17.0.1-slim
 
-RUN addgroup -S demo && adduser -S demo -G demo
-USER demo
+RUN   groupadd -g 1000 appuser \
+    && useradd --no-log-init --shell /bin/bash -u 1000 -g 1000 -o -c "" -m appuser \
+    && cp -r /etc/skel/. /home/appuser \
+    && chown -R 1000:1000 /home/appuser
 
-VOLUME /tmp
-COPY target/*.jar app.jar
+WORKDIR /home/appuser
+
+COPY --chown=1000:1000 /target/*.jar /home/appuser/app.jar
+
+USER appuser
 
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java", "-jar" , "/home/appuser/app.jar"]
