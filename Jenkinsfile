@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'docker run -p 8081:8080 --name micro_test micro'
+                sh 'docker run -d -p 8081:8080 --name micro_test micro'
             }
         }
     }
