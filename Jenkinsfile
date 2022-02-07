@@ -28,14 +28,7 @@ pipeline {
         }
         stage('Clean docker containers'){
             steps{
-                script{
-
-                    def doc_containers = sh(returnStdout: true, script: 'docker container ps -aq --filter="name=micro_test"').replaceAll("\n", " ") 
-                    if (doc_containers) {
-                        sh "docker stop ${doc_containers}"
-                    }
-
-                }
+                sh 'docker rm --force micro_test'
             }
         }
         stage('Deliver') {
