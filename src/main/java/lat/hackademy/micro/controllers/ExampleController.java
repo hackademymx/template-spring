@@ -1,6 +1,7 @@
 package lat.hackademy.micro.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +41,7 @@ public class ExampleController {
 	@GetMapping("/")
 	public List<ExampleModelDTO> all() {
 		LOGGER.info("GET /");
-		return exampleService.findAll().stream().map(mapper::toDto).toList();
+		return exampleService.findAll().stream().map(mapper::toDto).collect(Collectors.toList());
 	}
 
 	// Lo mismo se consigue con:
