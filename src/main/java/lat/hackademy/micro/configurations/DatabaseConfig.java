@@ -16,7 +16,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
-@Profile("prod")
+@Profile("postgresUrl")
 public class DatabaseConfig {
 
 	@Value("${spring.datasource.url}")

@@ -2,7 +2,7 @@ FROM maven:3.8.4-openjdk-17 as builder
 
 ADD . .
 
-RUN mvn clean install -DskipTests
+RUN mvn clean install -P prod
 
 FROM openjdk:17.0.1-slim
 

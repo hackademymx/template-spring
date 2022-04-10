@@ -34,7 +34,7 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
-		
+
 		<!-- Spring starters -->
 		<!-- Starter Actuactor -->
 		<dependency>
@@ -142,7 +142,91 @@
 					<include>application*.properties</include>
 				</includes>
 			</resource>
-		</resources>	
+		</resources>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>localnoDB</id>
+	        <properties>
+            	<spring.profiles.active>h2,local</spring.profiles.active>
+        	</properties>
+       	    <activation>
+        		<activeByDefault>true</activeByDefault>
+    		</activation>
+			<dependencies>
+				<!-- Starter Dev tools **Remove before release** -->
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-devtools</artifactId>
+					<scope>runtime</scope>
+					<optional>true</optional>
+				</dependency>
+				<!-- Driver de base de datos -->
+				<dependency>
+					<groupId>com.h2database</groupId>
+					<artifactId>h2</artifactId>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>localpostgres</id>
+	        <properties>
+            	<spring.profiles.active>postgres,local</spring.profiles.active>
+        	</properties>
+			<dependencies>
+				<!-- Starter Dev tools **Remove before release** -->
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-devtools</artifactId>
+					<scope>runtime</scope>
+					<optional>true</optional>
+				</dependency>
+				<!-- Driver de base de datos -->
+				<dependency>
+					<groupId>org.postgresql</groupId>
+					<artifactId>postgresql</artifactId>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>localurl</id>
+	        <properties>
+            	<spring.profiles.active>postgresUrl,local</spring.profiles.active>
+        	</properties>
+			<dependencies>
+				<!-- Starter Dev tools **Remove before release** -->
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-devtools</artifactId>
+					<scope>runtime</scope>
+					<optional>true</optional>
+				</dependency>
+				<!-- Driver de base de datos -->
+				<dependency>
+					<groupId>org.postgresql</groupId>
+					<artifactId>postgresql</artifactId>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>prod</id>
+		    <properties>
+        		<maven.test.skip>true</maven.test.skip>
+            	<spring.profiles.active>prostgresUrl,prod</spring.profiles.active>
+        	</properties>
+			<dependencies>
+				<!-- Driver de base de datos -->
+				<dependency>
+					<groupId>org.postgresql</groupId>
+					<artifactId>postgresql</artifactId>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 
 </project>
