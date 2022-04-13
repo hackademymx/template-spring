@@ -16,13 +16,4 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	//Se agregan las definiciones para swagger
-	@Bean
-	public OpenAPI customOpenAPI(@Value("${application.title}") String appTitle,
-			@Value("${application.description}") String appDesciption,
-			@Value("${application.version}") String appVersion) {
-		return new OpenAPI().info(new Info().title(appTitle).version(appVersion).description(appDesciption)
-				.termsOfService("http://swagger.io/terms/")
-				.license(new License().name("Apache 2.0").url("http://springdoc.org")));
-	}
 }
