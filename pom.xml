@@ -221,7 +221,7 @@
 			<id>prod</id>
 		    <properties>
         		<maven.test.skip>true</maven.test.skip>
-            	<spring.profiles.active>prostgresUrl,prod</spring.profiles.active>
+            	<spring.profiles.active>postgresUrl,prod</spring.profiles.active>
         	</properties>
 			<dependencies>
 				<!-- Driver de base de datos -->
