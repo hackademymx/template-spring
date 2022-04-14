@@ -71,14 +71,7 @@
 			<version>${springdoc.version}</version>
 		</dependency>
 
-		<!-- Driver de base de datos -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator-annotation-processor -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
@@ -216,7 +209,7 @@
 			<id>prod</id>
 		    <properties>
         		<maven.test.skip>true</maven.test.skip>
-            	<spring.profiles.active>prostgresUrl,prod</spring.profiles.active>
+            	<spring.profiles.active>postgresUrl,prod</spring.profiles.active>
         	</properties>
 			<dependencies>
 				<!-- Driver de base de datos -->
